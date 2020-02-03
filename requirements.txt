@@ -1,0 +1,6 @@
+tqdm
+transformers
+mlflow
+torch
+torchvision
+

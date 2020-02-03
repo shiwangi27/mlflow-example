@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/shiwangisingh/Documents/my_projects/mlflow-example/mlruns/0/9c40e94f651e446fb20257f9a9878c38/artifacts
+end_time: 1580248250757
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+name: ''
+run_id: 9c40e94f651e446fb20257f9a9878c38
+run_uuid: 9c40e94f651e446fb20257f9a9878c38
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1580248169641
+status: 3
+tags: []
+user_id: shiwangisingh

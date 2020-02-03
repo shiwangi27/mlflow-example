@@ -1,0 +1,8 @@
+CREATE USER mlflowUser;
+
+CREATE DATABASE Reviews_Dev;
+GRANT ALL PRIVILEGES ON DATABASE Reviews_Dev TO mlflowUser;
+
+CREATE DATABASE Reviews_Test;
+GRANT ALL PRIVILEGES ON DATABASE Reviews_Test TO mlflowUser;
+
