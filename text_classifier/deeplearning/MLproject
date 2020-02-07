@@ -1,0 +1,51 @@
+name: transformer-pretraining
+
+docker_env:
+  image:  transformer-pretraining-docker-image
+
+entry_points:
+  main:
+    parameters:
+      dataset_path: {type: string, default: "simplebooks-2-raw"}
+      dataset_cache: {type: string, default: "./dataset_cache"}
+      embedding_dim: {type: float, default: 410}
+      hidden_dim: {type: float, default: 2100}
+      num_max_positions: {type: float, default: 256}
+      num_heads: {type: float, default: 10}
+      num_layers: {type: float, default: 16}
+      dropout: {type: float, default: 0.1}
+      initializer_range: {type: float, default: 0.02}
+      mlm: {type: string, default: "True"}
+      mlm_probability: {type: float, default: 0.15}
+      train_batch_size: {type: float, default: 8}
+      valid_batch_size: {type: float, default: 8}
+      lr: {type: float, default: 2.5e-4}
+      max_norm: {type: float, default: 0.25}
+      weight_decay: {type: float, default: 0.0}
+      n_epochs: {type: float, default: 200}
+      n_warmup: {type: float, default: 1000}
+      eval_every: {type: float, default: -1}
+      gradient_accumulation_steps: {type: float, default: 1}
+      device: {type: string, default: "cuda"}
+      local_rank: {type:float, default: -1}
+    command: "python -u main.py --dataset_path {dataset_path} \
+                                --dataset_cache {dataset_cache} \
+                                --embedding_dim {embedding_dim} \
+                                --hidden_dim {hidden_dim} \
+                                --num_max_positions {num_max_positions} \
+                                --num_heads {num_heads} \
+                                --num_layers {num_layers} \
+                                --initializer_range {initializer_range} \
+                                --mlm {mlm} \
+                                --mlm_probability {mlm_probability} \
+                                --train_batch_size {train_batch_size} \
+                                --valid_batch_size {valid_batch_size} \
+                                --lr {lr} \
+                                --max_norm {max_norm} \
+                                --weight_decay {weight_decay} \
+                                --n_epochs {n_epochs} \
+                                --n_warmup {n_warmup} \
+                                --eval_every {eval_every} \
+                                --gradient_accumulation_steps {gradient_accumulation_steps} \
+                                --device {device} \
+                                --local_rank {local_rank}"

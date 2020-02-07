@@ -2,6 +2,8 @@ import logging
 from argparse import ArgumentParser
 import torch
 
+from text_classifier.deeplearning.transformers.pretrained_training import train
+
 logger = logging.getLogger(__file__)
 
 
@@ -11,7 +13,7 @@ if __name__ == "__main__":
     parser.add_argument("--dataset_path", type=str, default='wikitext-2', help="One of ('wikitext-103', 'wikitext-2') or a dict of splits paths.")
     parser.add_argument("--dataset_cache", type=str, default='./dataset_cache', help="Path or url of the dataset cache")
 
-    parser.add_argument("--embed_dim", type=int, default=410, help="Embeddings dim")
+    parser.add_argument("--embedding_dim", type=int, default=410, help="Embeddings dim")
     parser.add_argument("--hidden_dim", type=int, default=2100, help="Hidden dimension")
     parser.add_argument("--num_max_positions", type=int, default=256, help="Max input length")
     parser.add_argument("--num_heads", type=int, default=10, help="Number of heads")
@@ -41,4 +43,7 @@ if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO if args.local_rank in [-1, 0] else logging.WARN)
     logger.warning("Running process %d", args.local_rank)  # This is a logger.warning: it will be printed by all distributed processes
     logger.info("Arguments: %s", format(args))  # This is a logger.info: only printed on the first process
+
+    train(args)
+
 

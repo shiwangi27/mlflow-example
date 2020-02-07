@@ -1,6 +1,7 @@
 import torch
 import torch.nn as nn
 
+from transformers import BertModel
 
 class Transformer(nn.Module):
     def __init__(self, embedding_dim, hidden_dim, num_embeddings, num_max_positions, num_heads, num_layers, dropout,
